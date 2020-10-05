@@ -5,13 +5,11 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
 import BasicLayout from './components/BasicLayout.vue'
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
     BasicLayout
   }
 }
