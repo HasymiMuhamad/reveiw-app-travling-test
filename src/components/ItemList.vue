@@ -107,7 +107,7 @@ export default {
 
 .content-2 .sub-content-list .list-id .more-icon-general {
     position: relative;
-    left: 346px;
+    left: 831px;
 }
 
 .content-2 .sub-content-list .list-id .username {

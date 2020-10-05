@@ -169,7 +169,7 @@ export default {
     margin-right: 17px;
     width: 206px;
     position: relative;
-    left: 234px;
+    left: 730px;
 }
 
 .content-1 .sub-content .sub-content-title .title{
