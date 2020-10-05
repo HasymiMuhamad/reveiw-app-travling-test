@@ -3,7 +3,7 @@
         <div class="sub-content">
             <div class="sub-content-title">
                 <p class="title">Review</p>
-                <div class="icon">
+                <div :class="ratingView">
                     <img class="star-icon" :src="starIcon">
                     <img class="star-icon" :src="starIcon">
                     <img class="star-icon" :src="starIcon">
@@ -13,8 +13,8 @@
             </div>
             <div class="content-form">
                 <form class="form-data">
-                    <input class="input-form">
-                    <input class="input-form-textarea">
+                    <input class="input-form" placeholder="Tulis Nama Kamu">
+                    <input class="input-form-textarea" placeholder="Tulis Review Terbaik kamu">
                 </form>
             </div>
             <div class="submit-button">
@@ -31,13 +31,15 @@
 
 <script>
 import starIcon from '../assets/star.svg'
+import { isMobile } from 'mobile-device-detect';
 
 
 export default {
   name: 'ReviewForm',
   data(){
     return {
-      starIcon
+      starIcon,
+      ratingView : isMobile ? "icon" : "icon-rating-general"
     }
   }
 }
@@ -50,14 +52,10 @@ export default {
 .content-1 {
     width: 100%;
     height: 308px;
-    /* background-color: rgb(128, 217, 240); */
     position: relative;
-    /* bottom: 322px; */
     left: 0;
     right: 0;
     top: 0;
-    /* background-image: linear-gradient(to bottom right, #523055, #855876); */
- 
 }
 
 .content-1 .sub-content{
@@ -67,8 +65,6 @@ export default {
     position: relative;
     right: 0;
     left: 0;
-    /* top: 14px;
-    bottom: 455px; */
     margin: auto;
     border-radius: 6px;
     box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)
@@ -89,31 +85,18 @@ export default {
 .content-1 .sub-content .submit-button .upload-image {
     width: 50%;
     height: 45px;
-    /* margin-top: -3px; */
     background-color: transparent;
     color: white;
     border-right: 2px solid white;
 }
 
 .content-1 .sub-content .submit-button .send {
-    /* width: 50%;
-    height: 45px;
-    margin-top: 19px;
-    background-color: red;
-    color: white;
-    float: right; */
-
     width: 50%;
     height: 45px;
-    /* margin-top: -3px; */
     background-color: transparent;
     color: white;
     float: right;
 }
-
-/* .content-1 .sub-content .submit-button .upload-image p {
-    padding : 11px;
-} */
 
 .content-1 .sub-content .content-form {
     margin-top: 79px;
@@ -160,32 +143,38 @@ export default {
 }
 
 .content-1 .sub-content .sub-content-title .icon{
-    /* display: flex; */
     flex-direction: row;
     display: flex;
     align-items: flex-start;
     flex-wrap: nowrap;
-
     margin-top: 30px;
     margin-left: 45px;
     justify-content: space-around;
     margin-right: 16px;
-    /* height: 250px; */
+}
 
+.content-1 .sub-content .sub-content-title .icon-rating-general{
+    flex-direction: row;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    margin-top: 12px;
+    margin-left: 45px;
+    justify-content: space-around;
+    margin-right: 17px;
+    width: 206px;
+    position: relative;
+    left: 234px;
 }
 
 .content-1 .sub-content .sub-content-title .title{
-    /* position: absolute; */
     left: 17px;
     font-size: 36px;
     margin-top: 10px;
     margin-left: 15px;
-    
 }
 
 .content-1 .sub-content .sub-content-title .star-icon{
-    /* width: 22px;
-    height: 22px; */
     width: 40%;
     padding-left: 10px;
 }

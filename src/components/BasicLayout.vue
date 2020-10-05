@@ -33,7 +33,6 @@ export default {
 .review-content{
     display: flex;
     flex-direction: column;
-    /* background-image: linear-gradient(to bottom right, #523055, #855876); */
 }
 
 .review-content-form {
@@ -51,7 +50,6 @@ export default {
     position: relative;
     left: 0;
     right: 0;
-    /* margin-top: 10px; */
     margin-right: auto;
     margin-bottom: 22px;
     margin-left: auto;

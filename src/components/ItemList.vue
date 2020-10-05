@@ -2,10 +2,10 @@
     <div class="content-2">
         <div class="sub-content-list">
             <div class="list-id">
-                <img class="icon-profile" :src="boyPhoto"/>
+                <img class="icon-profile" :src="avatar"/>
                 <div class="username">
-                    <p class="content-username">Afdha</p>
-                    <p class="content-date">2 Desember 2018</p>
+                    <p class="content-username">{{author}}</p>
+                    <p class="content-date">{{commentDate}}</p>
                     <div class="icon">
                         <img class="star-icon" :src="starIcon">
                         <img class="star-icon" :src="starIcon">
@@ -14,12 +14,17 @@
                         <img class="star-icon" :src="starIcon">
                     </div>
                 </div>
-                <img class="more-icon" :src="moreIcon">
+                <img :class="mobileView" :src="moreIcon">
             </div>
             <div class="comment">
-                <p>Disini keren beruh</p>
-                <img class="comment-image" :src="imageComment">
-                <img class="comment-image" :src="imageComment2">
+                <p>{{comment}}</p>
+                <div class="comment-flex">
+                    <img class="comment-image" :src="imageContent">
+                    <div v-if="imageContentAlt">
+                        <img class="comment-image" :src="imageContentAlt">
+                    </div>
+                    <div v-else> </div>
+                </div>
             </div>
         </div>
     </div>
@@ -31,18 +36,20 @@ import moreIcon from '../assets/more.svg'
 import starIcon from '../assets/star.svg'
 import imageComment from '../assets/mountainView.jpg'
 import imageComment2 from '../assets/mountainView2.jpg'
-
+import { isMobile } from 'mobile-device-detect';
 
 
 export default {
   name: 'ItemList',
+  props: ["comment","author","imageContent","imageContentAlt","avatar","commentDate"],
   data(){
     return {
       boyPhoto,
       moreIcon,
       starIcon,
       imageComment,
-      imageComment2
+      imageComment2,
+      mobileView : isMobile ? "more-icon" : "more-icon-general"
     }
   }
 }
@@ -57,7 +64,6 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    /* top:344px */
 }
 
 .content-2 .sub-content-list{
@@ -68,7 +74,6 @@ export default {
     position: relative;
     right: 0;
     left: 0;
-    /* top: 369px; */
     margin-top: 10px;
     margin-right: auto;
     margin-bottom: auto;
@@ -89,7 +94,12 @@ export default {
 
 .content-2 .sub-content-list .list-id .more-icon{
     position: relative;
-    /* left: 107px; */
+    left: 20px;
+}
+
+.content-2 .sub-content-list .list-id .more-icon-general {
+    position: relative;
+    left: 346px;
 }
 
 .content-2 .sub-content-list .list-id .username {
@@ -156,6 +166,11 @@ img {
     border-radius: 20%;
     margin-left: 0px;
     margin-top: 0px;
+}
+
+.comment .comment-flex {
+    display: flex;
+    flex-direction: row;
 }
 
 </style>

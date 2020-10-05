@@ -1,12 +1,15 @@
 <template>
     <div class="list">
-         <!-- <div v-for="item in reviewData.reviews.most_recent" :key="item.content">
-            <li>{{item.content}}</li>
-        </div> -->
-        <ItemList/> 
-        <ItemList/>
-        <ItemList/>
-        <ItemList/>
+         <div v-for="item in reviewData.reviews.most_recent" :key="item.content">
+            <ItemList 
+                v-bind:comment="item.content"
+                v-bind:author="item.author"
+                v-bind:imageContent="item.image"
+                v-bind:imageContentAlt="item.imageAlt"
+                v-bind:avatar="item.avatar"
+                v-bind:commentDate="item.date"
+            /> 
+        </div>
     </div>
 </template>
 
@@ -32,12 +35,7 @@ export default {
       axios
       .post(endPointGetReviewData, {})
       .then(response => {
-          console.log('response get data', response.data.reviews)
-          console.log('response get data content', response.data.reviews.most_recent[0].content)
-            // console.table('res table', response.data.reviews.most_recent)
           this.reviewData = response.data
-          console.log('response get data this', this.reviewData.reviews.most_recent[0].content)
-
       })
   }
 }
