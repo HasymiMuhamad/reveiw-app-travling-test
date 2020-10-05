@@ -41,7 +41,14 @@ import { isMobile } from 'mobile-device-detect';
 
 export default {
   name: 'ItemList',
-  props: ["comment","author","imageContent","imageContentAlt","avatar","commentDate"],
+  props: [
+      "comment",
+      "author",
+      "imageContent",
+      "imageContentAlt",
+      "avatar",
+      "commentDate"
+  ],
   data(){
     return {
       boyPhoto,
@@ -49,7 +56,8 @@ export default {
       starIcon,
       imageComment,
       imageComment2,
-      mobileView : isMobile ? "more-icon" : "more-icon-general"
+      mobileView : isMobile ? 
+        "more-icon" : "more-icon-general"
     }
   }
 }

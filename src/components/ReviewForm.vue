@@ -13,8 +13,12 @@
             </div>
             <div class="content-form">
                 <form class="form-data">
-                    <input class="input-form" placeholder="Tulis Nama Kamu">
-                    <input class="input-form-textarea" placeholder="Tulis Review Terbaik kamu">
+                    <input class="input-form" 
+                        placeholder="Tulis Nama Kamu"
+                    >
+                    <input class="input-form-textarea" 
+                        placeholder="Tulis Review Terbaik kamu"
+                    >
                 </form>
             </div>
             <div class="submit-button">
@@ -39,7 +43,8 @@ export default {
   data(){
     return {
       starIcon,
-      ratingView : isMobile ? "icon" : "icon-rating-general"
+      ratingView : isMobile ? 
+        "icon" : "icon-rating-general"
     }
   }
 }
